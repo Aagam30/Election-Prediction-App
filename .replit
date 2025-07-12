@@ -1,0 +1,21 @@
+modules = ["web", "python-3.12"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["glibcLocales"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 44944471
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python app.py"
